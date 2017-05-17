@@ -10,7 +10,7 @@ class profile::puppet_cm (
   if $::user_exists_vagrant {
     $_autosign_entries = ['*.localvm']
     $_agent_environment = $::vagrant_git_env
-    $_raw_append = "set $puppet_mom \"192.168.58.10\";"
+    $_raw_append = 'set $puppet_mom "192.168.58.10";'
   }
 
   class { '::puppet':
