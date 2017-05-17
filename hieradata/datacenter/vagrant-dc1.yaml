@@ -1,0 +1,3 @@
+---
+puppet::puppet_master: 'puppet-cm01.localvm'
+puppet::puppet_mom: 'puppet-mom.localvm'

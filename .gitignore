@@ -1,0 +1,3 @@
+hieradata/nodes/example-puppet-master.yaml
+*/.vagrant/*
+modules/*
