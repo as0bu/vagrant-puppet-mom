@@ -3,7 +3,6 @@ class profile::puppet_cm (
   $puppet_mom = hiera('puppet::puppet_mom')
 
 ){
-  $_mom_proxy = "https://${puppet_mom}:8140/\$1"
 
   include ::nginx
 
@@ -11,6 +10,10 @@ class profile::puppet_cm (
     $_autosign_entries = ['*.localvm']
     $_agent_environment = $::vagrant_git_env
     $_raw_append = 'set $puppet_mom "192.168.58.10";'
+    $_mom_proxy = "https://\$puppet_mom:8140/\$1"
+  }
+  else {
+    $_mom_proxy = "https://${puppet_mom}:8140/\$1"
   }
 
   class { '::puppet':
