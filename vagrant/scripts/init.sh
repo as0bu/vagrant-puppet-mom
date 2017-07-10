@@ -1,6 +1,8 @@
 #!/bin/bash
 
-sudo rpm -Uvh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-6.noarch.rpm
+MAJOR_VERSION=`grep -Eo ' [0-9].' /etc/redhat-release | grep -Eo '[0-9]'`
+
+sudo rpm -Uvh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-$MAJOR_VERSION.noarch.rpm
 sudo yum clean all
 sudo yum makecache
 sudo yum install -y puppet-agent git
